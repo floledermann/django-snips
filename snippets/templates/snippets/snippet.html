@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ snippet.title|safe }}{% endblock %}#}
+
+{% block body %}
+<h1>{{ snippet.title|safe }}</h1>
+<p>
+{{ snippet.content|safe|linebreaks }}
+</p>
+
+{% snippets "menu" as nav %}
+<ul>
+{% for item in nav %}
+<li><a href="{% url snippet slug=item.slug %}">{{ item.title|safe }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
