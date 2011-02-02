@@ -10,7 +10,7 @@ setup(
     author_email='ledermann@ims.tuwien.ac.at',
     url='http://bitbucket.org/floledermann/django-snips/',
     license='GPL',
-    package_dir = {'': 'src/python'},
+    package_dir = {'': ''},
     packages=['snippets'],
     classifiers=[
         'Development Status :: 3 - Alpha',
