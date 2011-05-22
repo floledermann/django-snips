@@ -1,10 +1,9 @@
 from django.contrib import admin
-from django.conf import settings
 
+from snippets import settings
 from snippets.models import *
 
 class SnippetAdmin(admin.ModelAdmin):
-
         
     list_display = ('__unicode__', 'lang', 'active', 'date')
     list_filter = ('lang', 'categories') #, 'parent'
