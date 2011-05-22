@@ -10,6 +10,7 @@ class SnippetAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
+    save_as = True
 
     if len(settings.LANGUAGES) < 2:
         exclude = ('lang',)
