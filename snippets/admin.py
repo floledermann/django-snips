@@ -5,15 +5,17 @@ from snippets.models import *
 
 class SnippetAdmin(admin.ModelAdmin):
         
-    list_display = ('__unicode__', 'lang', 'active', 'date')
-    list_filter = ('lang', 'categories') #, 'parent'
+    if settings.USE_I18N:
+        list_filter = ('lang', 'categories') #, 'parent'
+        list_display = ('__unicode__', 'lang', 'active', 'date')
+    else:
+        list_filter = ('categories',) #, 'parent'
+        list_display = ('__unicode__', 'active', 'date')
+        exclude = ('lang',)
 
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
     save_as = True
-
-    if len(settings.LANGUAGES) < 2:
-        exclude = ('lang',)
 
     def save_model(self, request, obj, form, change):
         if not change:

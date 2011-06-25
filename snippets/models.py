@@ -40,7 +40,7 @@ class Snippet(models.Model):
             filename = '%s/%s' % (self.slug, filename)
         return 'uploads/snippets/' + filename
 
-    lang = models.CharField(_('Language'), max_length=5, choices=settings.LANGUAGES, default=settings.LANGUAGES[0][0])
+    lang = models.CharField(_('Language'), max_length=5, choices=settings.LANGUAGES, default=settings.DEFAULT_LANGUAGE)
     title = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(blank=True)
 
