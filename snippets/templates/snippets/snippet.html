@@ -10,7 +10,7 @@
 </p>
 
 {% snippets "menu" as nav %}
-<ul>
+<ul class="nav">
 {% for item in nav %}
 <li><a href="{% url snippet slug=item.slug %}">{{ item.title|safe }}</a></li>
 {% endfor %}
